@@ -52,6 +52,16 @@ export default defineConfig((/* ctx */) => {
       // distDir
 
       // extendViteConf (viteConf) {},
+      extendViteConf (viteConf, { _isServer, _isClient }) {
+        viteConf.server = viteConf.server || {}
+
+        // Add the new allowed host here
+        viteConf.server.allowedHosts = [
+          '.onrender.com',
+          '.runasp.net'
+        ]
+      },
+
       // viteVuePluginOptions: {},
 
       // to write components with JSX/TSX:
